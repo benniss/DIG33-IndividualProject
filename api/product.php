@@ -1,7 +1,18 @@
-get_product()
+<?php
 
-post_product()
+/* This is the API for the companies products */
 
-update_product()
+// link to the database connection file
+require '..\connect.php';
 
-delete_product()
+get_product();
+
+post_product();
+
+update_product();
+
+delete_product();
+
+add_tocart();
+
+?>
