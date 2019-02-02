@@ -20,13 +20,12 @@
   
   $product->name = $data->name;
   $product->description = $data->description;
-  $product->size = $data->size;
-  $product->cost = $data->cost;
+  $product->price = $data->price;
   $product->image_url = $data->image_url;
   $product->type_id = $data->type_id;
   
   // Create product
-  if($product->create()) {
+  if($product->create_product()) {
     echo json_encode(
       array('message' => 'Post Created')
     );

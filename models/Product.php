@@ -1,5 +1,5 @@
 <?php
-	class Post{
+	class Product{
 		// Database connection and table information
 		private $conn;
 		private $table = 'products';
@@ -8,11 +8,8 @@
 		public $id;
 		public $name;
 		public $description;
-		public $size;
-		public $cost;
+		public $price;
 		public $image_url;
-		public $type_id;
-		public $type_type;
 	
 	
 		// Constructor with DB
@@ -24,12 +21,11 @@
 		public function get_product(){
 			//Create Query
 			$query = 'SELECT 
-				t.type as type_type,
+				t.type as type_name,
 				p.id,
 				p.name,
 				p.description,
-				p.size,
-				p.cost,
+				p.price,
 				p.image_url,
 				p.type_id
 			FROM
@@ -37,7 +33,7 @@
 			LEFT JOIN
 				product_type t ON p.type_id = t.id
 			ORDER BY
-				p.it ASC';
+				p.id ASC';
 			
 			//Prepare statement
 			$stmt = $this->conn->prepare($query);
@@ -57,8 +53,7 @@
 				p.id,
 				p.name,
 				p.description,
-				p.size,
-				p.cost,
+				p.price,
 				p.image_url,
 				p.type_id
 			FROM
@@ -83,8 +78,7 @@
 		//Set properties
 		$this->name = $row['name'];
 		$this->description = $row['description'];
-		$this->size = $row['size'];
-		$this->cost = $row['cost'];
+		$this->price = $row['price'];
 		$this->image_url = $row['image_url'];
 		$this->type_id = $row['type_id'];
 		$this->type_type = $row['type_type'];
@@ -99,8 +93,7 @@
 			SET
 				name = :name,
 				description = :description,
-				size = :size,
-				cost = :cost,
+				price = :price,
 				image_url = :image_url,
 				type_id = :type_id';
 				
@@ -110,16 +103,14 @@
 		//clean data
 		$this->name = htmlspecialchars(strip_tags($this->name));
 		$this->description = htmlspecialchars(strip_tags($this->description));
-		$this->size = htmlspecialchars(strip_tags($this->size));
-		$this->cost = htmlspecialchars(strip_tags($this->cost));
+		$this->price = htmlspecialchars(strip_tags($this->price));
 		$this->image_url = $this->image_url;
 		$this->type_id = htmlspecialchars(strip_tags($this->type_id));
 		
 		//Bind the named parameters
 		$stmt->bindParam(':name', $this->name);
 		$stmt->bindParam(':description', $this->description);
-		$stmt->bindParam(':size', $this->size);
-		$stmt->bindParam(':cost', $this->cost);
+		$stmt->bindParam(':price', $this->price);
 		$stmt->bindParam(':image_url', $this->image_url);
 		$stmt->bindParam(':type_id', $this->type_id);
 		
@@ -141,9 +132,8 @@
           $query = 'UPDATE ' . $this->table . '
                     SET 
                         name = :name, 
-                        description = :description, 
-                        size = :size, 
-                        cost = :cost, 
+                        description = :description,
+                        price = :price, 
                         image_url = :image_url, 
                         type_id = :type_id
                     WHERE 
@@ -155,16 +145,14 @@
           // Clean data
           $this->name = htmlspecialchars(strip_tags($this->name));
 		$this->description = htmlspecialchars(strip_tags($this->description));
-		$this->size = htmlspecialchars(strip_tags($this->size));
-		$this->cost = htmlspecialchars(strip_tags($this->cost));
+		$this->price = htmlspecialchars(strip_tags($this->price));
 		$this->image_url = $this->image_url;
 		$this->type_id = htmlspecialchars(strip_tags($this->type_id));
 		  
           // Bind data
           $stmt->bindParam(':name', $this->name);
 	    $stmt->bindParam(':description', $this->description);
-		$stmt->bindParam(':size', $this->size);
-		$stmt->bindParam(':cost', $this->cost);
+		$stmt->bindParam(':price', $this->price);
 		$stmt->bindParam(':image_url', $this->image_url);
 		$stmt->bindParam(':type_id', $this->type_id);
 		  

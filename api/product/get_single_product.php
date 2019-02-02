@@ -17,15 +17,14 @@
   $product->id = isset($_GET['id']) ? $_GET['id'] : die();
   
   // Get Product
-  $product->read_single();
+  $product->get_single_product();
   
   //create array
   $product_arr = array(
 	'id' => $product->id,
 	'name' => $product->name,
 	'description' => $product->description,
-	'size' => $product->size,
-	'cost' => $product->cost,
+	'price' => $product->price,
 	'image_url' => $product->image_url,
 	'type_id' => $product->type_id,
 	'type_type' => $product->type_type

@@ -10,24 +10,39 @@
   $database = new Database();
   $db = $database->connect();
   
-  // Instantiate blog category object
-  $videos = new Videos($db);
+  // Instantiate video object
+  $videos = new Video($db);
   
-  // Get ID
-  $videos->id = isset($_GET['id']) ? $_GET['id'] : die();
+  // Video query
+  $result = $videos->get_video();  
+  // Get row count
+  $num = $result->rowCount();
   
-  // Get category
-  $videos->get_single();
-  
-  //create array
-  $videos_arr = array(
-	'id' => $videos->id,
-	'title' => $videos->title,
-	'description' => $videos->description,
-	'youtube_url' => $videos->youtube_url
-  );
-  
-  // convert to JSON database
-  print_r(json_encode($videos_arr));
-  
-  
+  // Check if any videos
+  if($num > 0) {
+    // Video array
+    $videos_arr = array();
+	
+    while($row = $result->fetch(PDO::FETCH_ASSOC)) {
+      extract($row);
+	  
+      $video_item = array(
+        'id' => $id,
+        'title' => $title,
+        'description' => $description,
+        'youtube_url' => $youtube_url
+      );
+	  
+      // Push to "data"
+      array_push($videos_arr, $video_item);
+    }
+	
+    // Turn to JSON & output
+    echo json_encode($videos_arr);
+    
+  } else {
+    // No videos
+    echo json_encode(
+      array('message' => 'No Videos have been found')
+    );
+  }

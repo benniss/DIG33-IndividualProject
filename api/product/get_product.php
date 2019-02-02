@@ -10,19 +10,18 @@
   $database = new Database();
   $db = $database->connect();
   
-  // Instantiate blog post object
+  // Instantiate product object
   $product = new Product($db);
   
   // Product query
-  $result = $product->read();  
+  $result = $product->get_product();  
   // Get row count
   $num = $result->rowCount();
   
   // Check if any products
   if($num > 0) {
     // Post array
-    $product_arr = array();
-    $product_arr['data'] = array();
+    $products_arr = array();
 	
     while($row = $result->fetch(PDO::FETCH_ASSOC)) {
       extract($row);
@@ -30,25 +29,23 @@
      $product_item = array(
         'id' => $id,
         'name' => $name,
-        'description' => html_entity_decode($description),
-        'size' => $size,
-        'cost' => $cost,
+        'description' => $description,
+        'price' => $price,
         'image_url' => $image_url,
         'type_id' => $type_id,
-        'type_type' => $type_type
+        'type_name' => $type_name
       );
 	  
       // Push to "data"
-      array_push($product_arr, $product_item);
-      // array_push($posts_arr['data'], $post_item);
+      array_push($products_arr, $product_item);
     }
 	
     // Turn to JSON & output
-    echo json_encode($product_arr);
+    echo json_encode($products_arr);
 	
   } else {
     // No Posts
     echo json_encode(
-      array('message' => 'No Posts Found')
+      array('message' => 'No Products Found')
     );
   }

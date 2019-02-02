@@ -2,8 +2,6 @@
   // Headers
   header('Access-Control-Allow-Origin: *');
   header('Content-Type: application/json');
-  header('Access-Control-Allow-Methods: DELETE');
-  header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type,Access-Control-Allow-Methods, Authorization, X-Requested-With');
   
   include_once '../../config/Database.php';
   include_once '../../models/Product_type.php';
@@ -12,22 +10,38 @@
   $database = new Database();
   $db = $database->connect();
   
-  // Instantiate product type object
+  // Instantiate Product type object
   $product_type = new Product_type($db);
   
-  // Get raw categoryed data
-  $data = json_decode(file_get_contents("php://input"));
+  // Product type query
+  $result = $product_type->get_product_type();  
+  // Get row count
+  $num = $result->rowCount();
   
-  // Set ID to update
-  $product_type->id = $data->id;
-  
-  // Delete category
-  if($product_type->delete()) {
-    echo json_encode(
-      array('message' => 'Product type has been deleted')
-    );
+  // Check if any Product types
+  if($num > 0) {
+    // Product type array
+   $product_types_arr = array();
+	
+    while($row = $result->fetch(PDO::FETCH_ASSOC)) {
+      extract($row);
+	  
+     $product_type_item = array(
+        'id' => $id,
+        'type' => $type,
+        'description' => $description
+      );
+	  
+      // Push to "data"
+      array_push($product_types_arr, $product_type_item);
+    }
+	
+    // Turn to JSON & output
+    echo json_encode($product_types_arr);
+	
   } else {
+    // No Product types
     echo json_encode(
-      array('message' => 'Product type has not been deleted')
+      array('message' => 'No Product types have been found')
     );
   }

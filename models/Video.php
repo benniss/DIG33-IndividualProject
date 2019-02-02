@@ -1,5 +1,5 @@
 <?php
-  class Video {
+  class Video{
     // Database connection and table information
     private $conn;
     private $table = 'videos';
@@ -11,12 +11,12 @@
     public $youtube_url;
 	
     // Constructor for the Database
-    public function __construct($db) {
-      $this->conn = $db;
-    }
+		public function __construct($db) {
+			$this->conn = $db;
+		}
 	
     // Get the videos from the database
-    public function read() {
+    public function get_video() {
       // Create the query
       $query = 'SELECT
         id,
@@ -26,7 +26,7 @@
       FROM
         ' . $this->table . '
       ORDER BY
-        id ASC';
+        id DESC';
 		
       // Prepare the statement
       $stmt = $this->conn->prepare($query);
@@ -37,8 +37,8 @@
       return $stmt;
     }
 	
-    // Get a single video
-  public function read_single(){
+	    // Get a single video
+  public function get_single_video(){
     // Create query
     $query = 'SELECT
                 id,
@@ -68,7 +68,7 @@
   }
   
   // Create a new video
-  public function create() {
+  public function create_video() {
     // Create the Query
     $query = 'INSERT INTO ' .
       $this->table . '
@@ -101,7 +101,7 @@
   }
   
   // Update a Video
-  public function update() {
+  public function update_video() {
     // Create Query
     $query = 'UPDATE ' .
       $this->table . '
@@ -139,7 +139,7 @@
   }
   
   // Delete a Video
-  public function delete() {
+  public function delete_video() {
     // Create query
     $query = 'DELETE FROM ' . $this->table . ' WHERE id = :id';
 	
@@ -162,4 +162,5 @@
 	
     return false;
     }
+
   }

@@ -2,7 +2,7 @@
   // Headers
   header('Access-Control-Allow-Origin: *');
   header('Content-Type: application/json');
-  header('Access-Control-Allow-Methods: POST');
+  header('Access-Control-Allow-Methods: PUT');
   header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type,Access-Control-Allow-Methods, Authorization, X-Requested-With');
   
   include_once '../../config/Database.php';
@@ -18,16 +18,19 @@
   // Get raw product type data
   $data = json_decode(file_get_contents("php://input"));
   
-  $product_type->type = $data->description;
+  // Set ID to update
+  $product_type->id = $data->id;
+  
+  $product_type->type = $data->type;
   $product_type->description = $data->description;
   
-  // Create product type
-  if($product_type->create()) {
+  // Update product type
+  if($product_type->update_product_type()) {
     echo json_encode(
-      array('message' => 'Product type has been created')
+      array('message' => 'Product type has been updated')
     );
   } else {
     echo json_encode(
-      array('message' => 'Product type  has not been created')
+      array('message' => 'Product type has not been updated')
     );
   }
