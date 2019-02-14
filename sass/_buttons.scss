@@ -1,0 +1,18 @@
+.button {
+    display: inline-block;
+    text-decoration: none;
+    border-radius: $global-border-radius;
+    color: #fff;
+    background: $brand-red;
+    padding: 0.5em 2em;
+    &:hover {
+        background: darken($brand-red, 20%);
+    }
+    &:active {
+        position: relative;
+        top: 2px;
+    }
+    &.large {
+      font-size: 3em;  
+    }
+}

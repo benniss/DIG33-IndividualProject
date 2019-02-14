@@ -1,0 +1,45 @@
+
+.copyright {
+    border-top: 1px solid #333;
+}
+
+.copyright li { 
+    display:inline-block; 
+}
+
+.wine {
+  max-width: 650px;
+  padding: 20px;
+  margin: 30px auto;
+  background-color: #fff;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.wine-name {
+  font-size: 2rem;
+  font-weight: normal;
+  margin: 0 0 1rem 0;
+}
+
+.wine-type {
+  font-size: 0.9rem;
+  color: #888;
+  vertical-align: middle;
+}
+
+.product-image {
+  float: left;
+  width: 40%;
+  margin-right: 15px;
+}
+
+
+// imports
+@import 'variables';
+@import 'base';
+@import 'typography';
+@import 'buttons';
+@import 'mixins';
+
+@import "../node_modules/bootstrap/scss/bootstrap";
