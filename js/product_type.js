@@ -18,9 +18,9 @@ dataRequest.send(null);
 
 function product_typeTemplate(details) {
   return `
-    <div class="wine">
-        
-        <h2 class="wine-name">${details.type} <span class="wine-type">(${details.type})</span></h2>
+    <div class="product">
+      <img class="product-image" src="${details.image_url}">
+        <h2 class="product-name">${details.type}</h2>
         <p><strong>Description:</strong> ${details.description} </p>
     </div>
   `;

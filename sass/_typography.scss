@@ -1,7 +1,13 @@
-h1 {
-    color: $heading-color;
+h1 h2 h3 h4{
+    color: $headings-color;
 }
 
-h2 {
-   color: $heading-color; 
+i {
+    color: $accent-pink;
 }
+
+address { 
+  display: block;
+  font-style: italic;
+} 
+

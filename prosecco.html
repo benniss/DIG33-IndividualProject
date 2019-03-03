@@ -10,28 +10,22 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/styles.css">
 
-    
-    <script src="node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
-    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-
-
   </head>
 
   <body>
     
     <div class="jumbotron text-center background" style="margin-bottom:0">
-      <img src="images/scavi_ray_logo.jpg" alt="SCAVI & RAY Logo" style="width:210px;height:130px;">
+      <img src="images/scavi_ray_logo.jpg" alt="SCAVI & RAY Logo" style="width:322px;height:200px;">
     </div>
   
-    <nav class="navbar navbar-expand-sm navbar-light bg-light">
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
         <ul class="navbar-nav">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Home</a>
+            <a class="nav-link" href="index.html">Home</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -60,12 +54,47 @@
     
     <section class="main text-center">
       <div class="container">
-        <h1>What is Prosecco</h1>
+        <h1>What is Prosecco?</h1>
         <div class="row justify-content-center">
-          <div class="col-md-6">
-            <p>Test content to see how it looks</p>
+          <div class="embed-responsive embed-responsive-16by9">
+            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/wzePIoxrnWc?autoplay=1&controls=0&loop=1&playlist=wzePIoxrnWc&amp;showinfo=0" allowfullscreen></iframe>
           </div>
         </div>
+        <p>In its simplest form, Prosecco is a sparkling white wine produced primarily from the Glera grape in the Veneto region of Italy. But like any wine, it’s a whole lot more complex than that!</p>
+        <h3>How Is Prosecco Made?</h3>
+        <p>Prosecco is produced in the Charmat method (sometimes called “Cuve Close”, “Metodo Italiano”, “Metodo Martinotti” or the “Tank Method”). This method is different from the “Traditional 
+        Method” (or the “Méthode Champenoise”) that is used to produce Champagne.</p>
+        <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+        <ul style="text-align:left">
+          <li><i>Step 1: </i>The grapes are harvested early to maintain high acid levels and are then sorted to ensure only the highest quality fruit is used to produce Prosecco.</li>
+          <li><i>Step 2: </i>The grapes are gently pressed to produce a clear juice.</li>
+          <li><i>Step 3: </i>This clear juice is fermented (usually in stainless steel tanks for a maximum of 8 – 10 days), resulting in a still (dry) base wine.</li>
+          <li><i>Step 4: </i>Once complete, the base wine is transferred to sealed and pressurized stainless steel tanks (called “autoclaves”) where a mixture of sugar and yeast is added to begin the second 
+          fermentation. Since these tanks are sealed and pressurized the CO² (carbon dioxide) produced during the fermentation (from the conversion of sugar to alcohol) cannot escape and remains trapped 
+          in the wine. Yay, baby bubbles!</li>
+          <li><i>Step 5: </i>Once the second fermentation is complete (about 10 more days), the wine is filtered to remove any lees (residual yeast) or sediment, and the “dosage” (a mixture of sugar and still 
+          wine) is added to bring the wine to its desired sweetness level.</li>
+          <li><i>Step 6: </i>From there the wine is bottled – still under the same amount of pressure as it was in the tank – using a special bottling machine.</li>
+          <li><i>Step 7: </i>The bottles run through a high-tech labeling machine, and voila!</li>
+        </ul>
+        </div>
+        <div class="col-2"></div>
+        </div>
+        
+        <h3>The result?</h3>
+        <p>But beyond that – sparkling wines made in this Charmat method are produced in a much shorter amount of time (sometimes in as little as a few weeks) and at a much lower cost than those made 
+        in the traditional Champagne method. That helps to explain the $15/bottle price point.</p>
+        <p>But does that mean that one method is better than the other? Not necessarily. It does, however, make for two very different styles of wine. The Charmat method produces youthful wines that 
+        are fresh, fruity and vibrant – and meant to be enjoyed that way. Unlike Champagne, Prosecco doesn’t typically improve with age and should be enjoyed within 2 years of purchase. That being 
+        said, as we learned in Italy, a higher quality Prosecco Superiore (DOCG) can maintain its vibrancy for up to 7 years (more info on Prosecco Superiore below)!</p>
+        <h3>Where Is Prosecco Made?</h3>
+        <p>Prosecco is made in the foothills of the Veneto region of Northern Italy (just north of the city of Venice). Like Champagne in France, Prosecco can only be produced within a specific 
+        geographic border in this part of Italy. You can buy sparkling wines made the same way (using the Charmat method) all over the world, but they cannot be labelled “Prosecco”. The highest 
+        quality Prosecco comes from the Treviso province of Veneto, between the towns of Conegliano and Valdobbiadene, on a convenient route dubbed “La Strada di Prosecco” (or, “The Prosecco Road”) 
+        that you can travel along to taste the best examples of the wine.</p>
+
       </div>
     </section>
     
@@ -109,7 +138,11 @@
       </div>
     </div>
   </div> 
-
+  
+  <script src="node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
+  <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="js/main.js"></script>
 
   </body>
 

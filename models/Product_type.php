@@ -8,6 +8,7 @@
     public $id;
     public $type;
     public $description;
+    public $image_url;
 	
     // Constructor for the Database
     public function __construct($db) {
@@ -20,7 +21,8 @@
       $query = 'SELECT
         id,
         type,
-        description
+        description,
+        image_url
       FROM
         ' . $this->table . '
       ORDER BY
@@ -41,7 +43,8 @@
     $query = 'SELECT
                 id,
                 type,
-                description
+                description,
+                image_url
             FROM
                 ' . $this->table . '
             WHERE id = ?
@@ -61,6 +64,7 @@
       $this->id = $row['id'];
       $this->type = $row['type'];
       $this->description = $row['description'];
+      $this->image_url = $row['image_url'];
   }
   
   // Create a new product_type
@@ -70,7 +74,8 @@
       $this->table . '
     SET
       type = :type,
-      description = :description';
+      description = :description,
+      image_url = :image_url';
 	  
   // Prepare the Statement
   $stmt = $this->conn->prepare($query);
@@ -82,6 +87,7 @@
   // Bind data
   $stmt-> bindParam(':type', $this->type);
   $stmt-> bindParam(':description', $this->description);
+  $stmt-> bindParam(':image_url', $this->image_url);
   
   // Execute query
   if($stmt->execute()) {
@@ -101,7 +107,8 @@
       $this->table . '
     SET
      type,
-     description
+     description,
+     image_url
     WHERE
       id = :id';
 	  
@@ -117,6 +124,7 @@
   $stmt-> bindParam(':id', $this->id);
   $stmt-> bindParam(':type', $this->type);
   $stmt-> bindParam(':description', $this->description);
+  $stmt-> bindParam(':image_url', $this->image_url);
   
   // Execute query
   if($stmt->execute()) {

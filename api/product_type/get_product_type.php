@@ -29,7 +29,8 @@
      $product_type_item = array(
         'id' => $id,
         'type' => $type,
-        'description' => $description
+        'description' => $description,
+        'image_url' => $image_url
       );
 	  
       // Push to "data"

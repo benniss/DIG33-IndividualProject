@@ -2,10 +2,25 @@
 $background: #000;
 $brand-red: #c10061;
 $accent-pink: #bb3f6f;
-$heading-color: #ececec;
+$headings-color: #c10061;
+$font-color: #ececec;
+
+$dark: #000;
+
+$body-bg: #000;
+$body-color: #ececec;
+
+$link-color: #c10061;
+
 
 // global settings
 $global-border-radius: 8px;
+$spacer: 30px;
+
+// Jumbotron
+$jumbotron-padding:                 0rem;
+$jumbotron-bg:                      $dark;
+
 
 
 

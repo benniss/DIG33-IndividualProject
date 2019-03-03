@@ -19,8 +19,8 @@ dataRequest.send(null);
 function productsTemplate(details) {
   return `
     <div class="wine">
-        <img class="product-image" src="${details.image_url}">
-        <h2 class="wine-name">${details.name} <span class="wine-type">(${details.type_name})</span></h2>
+        <img class="wine-image" src="${details.image_url}">
+        <h2 class="wine-name">${details.name} </h2>
         <p><strong>Price:</strong> ${details.price} </p>
         <p><strong>Description:</strong> ${details.description} </p>
     </div>
