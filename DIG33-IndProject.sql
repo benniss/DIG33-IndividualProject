@@ -28,7 +28,7 @@ CREATE TABLE `pages` (
   `description` text NOT NULL,
   `content` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -52,6 +52,7 @@ CREATE TABLE `product_type` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `type` text NOT NULL,
   `description` text NOT NULL,
+  `image_url` text NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -62,7 +63,7 @@ CREATE TABLE `product_type` (
 
 LOCK TABLES `product_type` WRITE;
 /*!40000 ALTER TABLE `product_type` DISABLE KEYS */;
-INSERT INTO `product_type` VALUES (1,'Spumante','The SCAVI & RAY SPUMANTE products, compared to FRIZZANTE products, have a stronger perlage and a more intense tingling sensation on the tongue. This means the bottle pressure is greater requiring the SPUMANTE to have a sparkling wine cork closure with an agraffe for the bottle to remain securely closed.'),(2,'Frizzante','SCAVI & RAY FRIZZANTE products are known for their fine perlage on account of lower carbon dioxide levels. This also explains the low bottle pressure and use of a simple cork without an additional agraffe.'),(3,'Aperitivi','The much-loved Italian prosecco cocktails guarantee a refreshing thrill: sparkling prosecco with fresh mint leaves and elderflower syrup or fruity bitter orange.');
+INSERT INTO `product_type` VALUES (1,'Spumante','The SCAVI & RAY SPUMANTE products, compared to FRIZZANTE products, have a stronger perlage and a more intense tingling sensation on the tongue. This means the bottle pressure is greater requiring the SPUMANTE to have a sparkling wine cork closure with an agraffe for the bottle to remain securely closed.','/images/prosecco.jpg'),(2,'Frizzante','SCAVI & RAY FRIZZANTE products are known for their fine perlage on account of lower carbon dioxide levels. This also explains the low bottle pressure and use of a simple cork without an additional agraffe.','/images/rosato.jpg'),(3,'Aperitivi','The much-loved Italian prosecco cocktails guarantee a refreshing thrill: sparkling prosecco with fresh mint leaves and elderflower syrup or fruity bitter orange.','/images/hugo.jpg');
 /*!40000 ALTER TABLE `product_type` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -78,7 +79,7 @@ CREATE TABLE `products` (
   `name` text NOT NULL,
   `description` text NOT NULL,
   `size` varchar(10) NOT NULL,
-  `price` double(10,2) NOT NULL,
+  `price` varchar(10) NOT NULL,
   `image_url` text NOT NULL,
   `type_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
@@ -91,7 +92,7 @@ CREATE TABLE `products` (
 
 LOCK TABLES `products` WRITE;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
-INSERT INTO `products` VALUES (1,'Prosecco Spumante','SCAVI & RAY\nProsecco Spumante\n\nVINO SPUMANTE fully embodies the SCAVI & RAY character. Longer fermentation times lend this prosecco a more intense perlage. It has a fresh nose and many fruit notes. It is a spumante rich in flavour, invigorating lifes wonderful moments.\n\nVENETO PROSECCO D.O.C. VINO SPUMANTE Alcohol content 11.0% vol. \nIdeal serving temperature 8 to 10 deg C','200ml',3.00,'/images/SR_Prosecco_200ml.jpg',1),(2,'Prosecco Spumante','SCAVI & RAY\nProsecco Spumante\n\nVINO SPUMANTE fully embodies the SCAVI & RAY character. Longer fermentation times lend this prosecco a more intense perlage. It has a fresh nose and many fruit notes. It is a spumante rich in flavour, invigorating lifes wonderful moments.\n\nVENETO PROSECCO D.O.C. VINO SPUMANTE Alcohol content 11.0% vol. \nIdeal serving temperature 8 to 10 deg C','750ml',11.00,'/images/SR_Prosecco_750ml.jpg',1),(3,'Rosato Frizzante','The summery ROSATO FRIZZANTE charms us with its ruby red colour and fine perlage. The special bottle, made of white glass, comes in a SCAVI & RAY design paying homage to the extraordinary colour of the Frizzante. The deep colour and fruity aroma give the VINO ROSATO its very original wine character.\n\nVENETO ROSATO I.G.T. VINO FRIZZANTE Alcohol content 10.5% vol. \nIdeal serving temperature 8 to 10 deg C','200ml',3.00,'/images/SR_Rosato_200ml.jpg',2),(4,'Rosato Frizzante','The summery ROSATO FRIZZANTE charms us with its ruby red colour and fine perlage. The special bottle, made of white glass, comes in a SCAVI & RAY design paying homage to the extraordinary colour of the Frizzante. The deep colour and fruity aroma give the VINO ROSATO its very original wine character.\n\nVENETO ROSATO I.G.T. VINO FRIZZANTE Alcohol content 10.5% vol. \nIdeal serving temperature 8 to 10 deg C','750ml',9.50,'/images/SR_Rosato_750ml.jpg',2),(5,'Hugo','HUGO combines first-class vino frizzante with elderflower syrup, a dash of lime juice and a shot of soda. It has become greatly popular in Italian bars and is the new darling of the scene. With only 6% vol., HUGO is a perfect, light accompaniment to Mediterranean dishes and a wonderful refreshment on any evening or during the day for that matter. HUGO by SCAVI & RAY is best served in a wine glass on the rocks. Put three ice cubes and a sprig of mint into a glass and top up with HUGO. Ready to serve!\n\nVENETO APERITIVO \nAlcohol content 6% vol. \nIdeal serving temperature 8 to 10 deg C','200ml',3.00,'/images/SR_Hugo_200ml.jpg',3),(6,'Hugo','HUGO combines first-class vino frizzante with elderflower syrup, a dash of lime juice and a shot of soda. It has become greatly popular in Italian bars and is the new darling of the scene. With only 6% vol., HUGO is a perfect, light accompaniment to Mediterranean dishes and a wonderful refreshment on any evening or during the day for that matter. HUGO by SCAVI & RAY is best served in a wine glass on the rocks. Put three ice cubes and a sprig of mint into a glass and top up with HUGO. Ready to serve!\n\nVENETO APERITIVO \nAlcohol content 6% vol. \nIdeal serving temperature 8 to 10 deg C','750ml',9.50,'/images/SR_Hugo_750ml.jpg',3);
+INSERT INTO `products` VALUES (1,'Prosecco Spumante','SCAVI & RAY\nProsecco Spumante\n\nVINO SPUMANTE fully embodies the SCAVI & RAY character. Longer fermentation times lend this prosecco a more intense perlage. It has a fresh nose and many fruit notes. It is a spumante rich in flavour, invigorating lifes wonderful moments.\n\nVENETO PROSECCO D.O.C. VINO SPUMANTE Alcohol content 11.0% vol. \nIdeal serving temperature 8 to 10 deg C','200ml','$3.00','/images/SR_Prosecco_200ml.png',1),(2,'Prosecco Spumante','SCAVI & RAY\nProsecco Spumante\n\nVINO SPUMANTE fully embodies the SCAVI & RAY character. Longer fermentation times lend this prosecco a more intense perlage. It has a fresh nose and many fruit notes. It is a spumante rich in flavour, invigorating lifes wonderful moments.\n\nVENETO PROSECCO D.O.C. VINO SPUMANTE Alcohol content 11.0% vol. \nIdeal serving temperature 8 to 10 deg C','750ml','$11.00','/images/SR_Prosecco_750ml.png',1),(3,'Rosato Frizzante','The summery ROSATO FRIZZANTE charms us with its ruby red colour and fine perlage. The special bottle, made of white glass, comes in a SCAVI & RAY design paying homage to the extraordinary colour of the Frizzante. The deep colour and fruity aroma give the VINO ROSATO its very original wine character.\n\nVENETO ROSATO I.G.T. VINO FRIZZANTE Alcohol content 10.5% vol. \nIdeal serving temperature 8 to 10 deg C','200ml','$3.00','/images/SR_Rosato_200ml.png',2),(4,'Rosato Frizzante','The summery ROSATO FRIZZANTE charms us with its ruby red colour and fine perlage. The special bottle, made of white glass, comes in a SCAVI & RAY design paying homage to the extraordinary colour of the Frizzante. The deep colour and fruity aroma give the VINO ROSATO its very original wine character.\n\nVENETO ROSATO I.G.T. VINO FRIZZANTE Alcohol content 10.5% vol. \nIdeal serving temperature 8 to 10 deg C','750ml','$9.50','/images/SR_Rosato_750ml.png',2),(5,'Hugo','HUGO combines first-class vino frizzante with elderflower syrup, a dash of lime juice and a shot of soda. It has become greatly popular in Italian bars and is the new darling of the scene. With only 6% vol., HUGO is a perfect, light accompaniment to Mediterranean dishes and a wonderful refreshment on any evening or during the day for that matter. HUGO by SCAVI & RAY is best served in a wine glass on the rocks. Put three ice cubes and a sprig of mint into a glass and top up with HUGO. Ready to serve!\n\nVENETO APERITIVO \nAlcohol content 6% vol. \nIdeal serving temperature 8 to 10 deg C','200ml','$3.00','/images/SR_Hugo_200ml.png',3),(6,'Hugo','HUGO combines first-class vino frizzante with elderflower syrup, a dash of lime juice and a shot of soda. It has become greatly popular in Italian bars and is the new darling of the scene. With only 6% vol., HUGO is a perfect, light accompaniment to Mediterranean dishes and a wonderful refreshment on any evening or during the day for that matter. HUGO by SCAVI & RAY is best served in a wine glass on the rocks. Put three ice cubes and a sprig of mint into a glass and top up with HUGO. Ready to serve!\n\nVENETO APERITIVO \nAlcohol content 6% vol. \nIdeal serving temperature 8 to 10 deg C','750ml','$9.50','/images/SR_Hugo_750ml.png',3);
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -130,4 +131,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-02-14  9:52:02
+-- Dump completed on 2019-03-04  9:04:46

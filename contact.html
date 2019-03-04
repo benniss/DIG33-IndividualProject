@@ -54,10 +54,45 @@
     
     <section class="main text-center">
       <div class="container">
-        <h1>Contact Us</h1>
         <div class="row justify-content-center">
           <div class="col-md-6">
-            <img class="d-block w-100" src="/images/slide5.jpg" alt="Third slide">
+            
+            <!--Contact form -->
+            <form class="text-center border border-light p-5">
+              <p class="h4 mb-4">Contact us</p>
+  
+              <!-- Textbox for Name -->
+              <input type="text" id="defaultContactFormName" class="form-control mb-4" placeholder="Name">
+  
+              <!-- Textbox for Email -->
+              <input type="email" id="defaultContactFormEmail" class="form-control mb-4" placeholder="E-mail">
+  
+              <!-- Textbox for Subject -->
+              <label>Subject</label>
+              <select class="browser-default custom-select mb-4">
+                <option value="" disabled>Choose option</option>
+                <option value="1" selected>Feedback</option>
+                <option value="2">Spumante Product Enquiry</option>
+                <option value="3">Frizzante Product Enquiry</option>
+                <option value="4">Aperitivi Product Enquiry</option>
+              </select>
+  
+              <!-- Textbox for Message -->
+              <div class="form-group">
+                <textarea class="form-control rounded-0" id="exampleFormControlTextarea2" rows="3" placeholder="Message"></textarea>
+              </div>
+  
+              <!-- Provide a Copy of the message to sender -->
+              <div class="custom-control custom-checkbox mb-4">
+                <input type="checkbox" class="custom-control-input" id="defaultContactFormCopy">
+                <label class="custom-control-label" for="defaultContactFormCopy">Send me a copy of this message</label>
+              </div>
+  
+              <!-- Send button -->
+              <button class="btn btn-info btn-block">Send</button>
+
+            </form>
+
           </div>
         </div>
       </div>
@@ -76,7 +111,7 @@
 
         <!-- Grid column -->
         <div class="col text-left">
-          © Copyright 2018
+          © Copyright 2019
         </div>
         <div class="col text-right">
           <ul class="list-unstyled">
